@@ -36,7 +36,7 @@ public class BankTest {
 class Bank{
     private Bank(){};
 
-    private static Bank instance = null;
+    private static volatile Bank instance = null;
     //线程安全的方式1
 //    public static synchronized Bank getInstance(){  //同步监视器为当前类本身 默认为Bank.class
 //        if (instance == null){
