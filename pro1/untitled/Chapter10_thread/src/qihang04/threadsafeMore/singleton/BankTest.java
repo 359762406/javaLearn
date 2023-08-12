@@ -37,11 +37,24 @@ class Bank{
     private Bank(){};
 
     private static Bank instance = null;
-
-    public static synchronized Bank getInstance(){  //同步监视器为当前类本身 默认为Bank.class
-        if (instance == null){
-            instance = new Bank();
+    //线程安全的方式1
+//    public static synchronized Bank getInstance(){  //同步监视器为当前类本身 默认为Bank.class
+//        if (instance == null){
+//            instance = new Bank();
+//        }
+//        return instance;
+//    }
+    //线程安全的方式2 3
+    public static Bank getInstance(){
+        if(instance == null){ // 降低访问的次数
+            synchronized (Bank.class) {
+                if (instance == null){
+                    instance = new Bank();
+                }
+            }
         }
         return instance;
+
     }
+    //线程安全的方式2
 }
