@@ -1,5 +1,9 @@
 package com.qihang01.string;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
 /**
  *public final class String
  *     implements java.io.Serializable, Comparable<String>, CharSequence,
@@ -35,4 +39,35 @@ public class StringTest {
         System.out.println(s2);
         System.out.println(s3);
     }
+    public String[] getMaxSameSubString(String str1, String str2){
+        if (str1 != null || str2 != null){
+            StringBuffer stringBuffer = new StringBuffer();
+            String maxString = (str1.length() > str2.length()) ? str1 : str2;
+            String minString = (str1.length() > str2.length()) ? str2 : str1;
+            int len = minString.length();
+            for (int i = 0; i < len; i ++){
+                for (int x = 0, y = len - i; y <= len; x ++, y++ ){
+                    String subString = minString.substring(x, y);
+                    if (maxString.contains(subString)){
+                        stringBuffer.append(subString+",");
+                    }
+                }
+                System.out.println(stringBuffer);
+                if(stringBuffer.length() != 0){
+                    break;
+                }
+            }
+            String[] spilt  = stringBuffer.toString().replaceAll(",$","").split(",");
+            return spilt;
+        }
+        return null;
+    }
+    @Test
+    public void testGetMaxSameSubString(){
+        String str = "12dad";
+        String str1 = "da";
+        String[] strs = getMaxSameSubString(str, str1);
+        System.out.println(Arrays.toString(strs));
+    }
+    
 }
