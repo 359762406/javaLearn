@@ -2,6 +2,7 @@ package com.qihang02.date.before8;
 
 import org.junit.Test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -53,6 +54,21 @@ public class before8Test {
         System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
         System.out.println(calendar.get(Calendar.DAY_OF_WEEK));
     }
+    @Test
+    public void test5(){
+        Date date1 = new Date();
+        java.sql.Date date = new java.sql.Date(date1.getTime());
+        System.out.println(date);
+    }
+    @Test
+    public void test6() throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String pattern = "2022-12-21";
+        Date date = simpleDateFormat.parse(pattern);
+        java.sql.Date date1 = new java.sql.Date(date.getTime());
+        System.out.println(date1);
+    }
+
 
 
 }
