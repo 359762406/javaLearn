@@ -1,6 +1,5 @@
 package com.qihang04.set.exer1;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 /**
