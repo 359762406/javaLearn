@@ -15,7 +15,7 @@ import java.util.*;
  *                             进而我们在遍历元素时，就可以按照添加的顺序显示。
  *                              开发中，对于频繁的遍历操作，建议使用此类。
  *      |---- TreeMap:底层使用红黑树存储;可以按照添加的key-value中的key元素的指定的属性的大小顺序进行遍历。需要考虑使用◎自然排序②定制排序。
- *      |---- Hashtable:古老实现类;线程安全的，效率低;可以添加null的key或value值;底层使用数组+单向链表结构存储（jdk8)
+ *      |---- Hashtable:古老实现类;线程安全的，效率低;不可以添加null的key或value值;底层使用数组+单向链表结构存储（jdk8)
  *            |---- Properties：其key和value都是String类型。常用来处理属性文件。
  *
  *
@@ -140,8 +140,15 @@ public class MapTest {
         Set entrySet = map.entrySet();
         Iterator iterator = entrySet.iterator();
         while(iterator.hasNext()){
-            System.out.println(iterator.next());
+//            System.out.println(iterator.next());
+            Map.Entry entry = (Map.Entry) iterator.next();
+            System.out.println(entry.getKey() + "--->" + entry.getValue());
         }
+        Set keySet = map.keySet();
+        for (Object key : keySet){
+            System.out.println(key + "--->" + map.get(key));
+        }
+
 
     }
     

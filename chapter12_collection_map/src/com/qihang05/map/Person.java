@@ -69,11 +69,12 @@ public class Person implements Comparable{
         if (o instanceof Person){
             Person person = (Person) o;
             int value = this.age - person.age;
-            if (value != 0){
-                return value;
-            }else{
-                return -this.name.compareTo(person.name);
-            }
+//            if (value != 0){
+//                return value;
+//            }else{
+//                return -this.name.compareTo(person.name);
+//            }
+            return value;
         }
         throw new RuntimeException("类型不匹配");
     }
