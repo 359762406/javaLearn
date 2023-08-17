@@ -1,5 +1,7 @@
 package com.qihang06.collections.exer1;
 
+import org.junit.Test;
+
 import java.util.*;
 
 /**
@@ -69,4 +71,10 @@ public class PokerTestWithHashMap {
         }
         System.out.println();
     }
+    @Test
+    public void test1(){
+        final HashMap map = new HashMap();
+        map.put("11",312);
+    }
+
 }
