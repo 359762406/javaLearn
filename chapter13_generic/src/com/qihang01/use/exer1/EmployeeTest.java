@@ -22,18 +22,19 @@ public class EmployeeTest {
         Comparator<Employee> employeeComparator = new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                int yearDistance = o1.getMyDate().getYear() - o2.getMyDate().getYear();
-                if (yearDistance != 0){
-                    return yearDistance;
-                }else {
-                    int mouthDistance  = o1.getMyDate().getMouth() - o2.getMyDate().getMouth();
-                    if(mouthDistance != 0){
-                        return mouthDistance;
-                    }else {
-                        int dayDistance  = o1.getMyDate().getDay() - o2.getMyDate().getDay();
-                        return dayDistance;
-                    }
-                }
+//                int yearDistance = o1.getMyDate().getYear() - o2.getMyDate().getYear();
+//                if (yearDistance != 0){
+//                    return yearDistance;
+//                }else {
+//                    int mouthDistance  = o1.getMyDate().getMouth() - o2.getMyDate().getMouth();
+//                    if(mouthDistance != 0){
+//                        return mouthDistance;
+//                    }else {
+//                        int dayDistance  = o1.getMyDate().getDay() - o2.getMyDate().getDay();
+//                        return dayDistance;
+//                    }
+//                }
+                return  o1.getMyDate().compareTo(o2.getMyDate());
             }
         };
         TreeSet<Employee> treeSet = new TreeSet<>(employeeComparator);
