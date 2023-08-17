@@ -57,5 +57,23 @@ public class CollectionsTest {
         }));
         System.out.println(list);
     }
+    @Test
+    public void test2(){
+        List list1 = new ArrayList();
+        list1.add(23);
+        list1.add(12);
+        list1.add(123);
+        List list2 = Collections.unmodifiableList(list1); // list2只能读不能写
+        System.out.println(list2.get(1));
+    }
+    @Test
+    public void test3(){
+        List list1 = new ArrayList();
+        List list2 = Collections.synchronizedList(list1);
+        HashMap map1 = new HashMap();
+        HashMap map2 = (HashMap) Collections.synchronizedMap(map1);
+    }
+
+
     
 }
