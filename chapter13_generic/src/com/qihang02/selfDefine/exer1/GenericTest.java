@@ -1,9 +1,8 @@
-package com.qihang02.selfdefine.exer1;
+package com.qihang02.selfDefine.exer1;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * ClassName: GenericTest

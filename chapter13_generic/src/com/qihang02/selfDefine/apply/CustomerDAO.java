@@ -1,4 +1,4 @@
-package com.qihang02.selfdefine.apply;
+package com.qihang02.selfDefine.apply;
 
 /**
  * ClassName: CustomerDAO

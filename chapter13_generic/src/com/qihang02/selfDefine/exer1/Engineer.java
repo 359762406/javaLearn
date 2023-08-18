@@ -1,4 +1,4 @@
-package com.qihang02.selfdefine.exer1;
+package com.qihang02.selfDefine.exer1;
 
 /**
  * ClassName: Engineer

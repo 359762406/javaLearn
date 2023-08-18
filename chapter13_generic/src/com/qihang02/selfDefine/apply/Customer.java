@@ -1,6 +1,4 @@
-package com.qihang02.selfdefine.apply;
-
-import com.qihang01.use.exer1.MyDate;
+package com.qihang02.selfDefine.apply;
 
 import java.sql.Date;
 import java.util.Objects;
