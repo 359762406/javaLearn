@@ -36,5 +36,14 @@ public class DAO<T> {
         return null;
     }
 
+    //定义泛型方法
+
+    //比如:查询表中的记录数。(E: Long类型)
+    //比如:查询表中最大的生日。(E: Date类型>
+
+    public <E> E getValue(String sql){
+        return null;
+    }
+
 
 }
