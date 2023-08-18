@@ -67,6 +67,7 @@ public class Person<E>{
     方法，也可以被泛型化，与其所在的类是否是泛型类没有关系。
     泛型方法中的泛型参数在方法被调用时确定。
     泛型方法可以根据需要，声明为static的。
+    泛型方法所属的类是否是一个泛型类，都可以。
     * */
     public static <E> ArrayList<E> copyFromArrayToListStatic(E[] arr){
         ArrayList<E> aimArrayList = new ArrayList<>();
