@@ -1,5 +1,7 @@
 package com.qihang02.selfdefine.exer1;
 
+import java.util.ArrayList;
+
 /**
  * ClassName: Person
  * Package: com.qihang02.selfdefine
@@ -20,7 +22,7 @@ public class Person<E>{
     //声明了类的泛型参数以后，就可以在类的内部使用此泛型参数。
     private E e;
     private int orderId;
-
+//    static E e1;
     public Person() {
     }
 
@@ -45,6 +47,34 @@ public class Person<E>{
         this.orderId = orderId;
     }
 
+    public <T> T method(T t){ //在形参列表会出现泛型参数T
+        return null;
+    }
+    /*
+    *[访问权限]  <泛型>  返回值类型  方法名([泛型标识 参数名称])  [抛出的异常]{
+        }
+    *
+    * */
+    //定义一个泛型方法，将E[]放到ArrayList中
+    public <E> ArrayList<E> copyFromArrayToList(E[] arr){
+        ArrayList<E> aimArrayList = new ArrayList<>();
+        for (E e : arr){
+            aimArrayList.add(e);
+        }
+        return aimArrayList;
+    }
+    /*
+    方法，也可以被泛型化，与其所在的类是否是泛型类没有关系。
+    泛型方法中的泛型参数在方法被调用时确定。
+    泛型方法可以根据需要，声明为static的。
+    * */
+    public static <E> ArrayList<E> copyFromArrayToListStatic(E[] arr){
+        ArrayList<E> aimArrayList = new ArrayList<>();
+        for (E e : arr){
+            aimArrayList.add(e);
+        }
+        return aimArrayList;
+    }
     @Override
     public String toString() {
         return "Person{" +
