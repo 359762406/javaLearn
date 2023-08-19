@@ -11,6 +11,9 @@ package com.qihang05.stack;
  */
 public class StackTest {
     /*
+    * 属于抽象数据类型(ADT), 使用数组和链表构建
+    * */
+    /*
     first in last out
     * */
 }
