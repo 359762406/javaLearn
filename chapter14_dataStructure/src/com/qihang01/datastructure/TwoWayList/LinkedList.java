@@ -1,4 +1,4 @@
-package com.qihang02.list.TwoWayList;
+package com.qihang01.datastructure.TwoWayList;
 
 import java.util.Iterator;
 

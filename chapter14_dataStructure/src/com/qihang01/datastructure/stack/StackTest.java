@@ -1,4 +1,4 @@
-package com.qihang05.stack;
+package com.qihang01.datastructure.stack;
 
 /**
  * ClassName: stackTest

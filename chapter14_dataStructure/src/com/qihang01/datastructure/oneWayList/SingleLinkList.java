@@ -1,7 +1,5 @@
-package com.qihang02.list.oneWayList;
+package com.qihang01.datastructure.oneWayList;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 
 /**

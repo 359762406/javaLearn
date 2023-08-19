@@ -1,4 +1,4 @@
-package com.qihang06.queue;
+package com.qihang01.datastructure.queue;
 
 /**
  * ClassName: Queue

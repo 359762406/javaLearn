@@ -1,4 +1,4 @@
-package com.qihang02.list.oneWayList;
+package com.qihang01.datastructure.oneWayList;
 
 import org.junit.Test;
 
