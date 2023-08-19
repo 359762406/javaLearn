@@ -2,6 +2,7 @@ package com.qihang02.list.oneWayList;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * ClassName: ListTest
@@ -20,7 +21,7 @@ import java.util.HashMap;
     优点：不采用连续的存储空间导致内存空间利用率比较高，克服顺序存储结构中预知元素个数的缺点。插入或删除元素时，不需要移动大量的元素。
     缺点：需要额外的空间来表达数据之间的逻辑关系，不支持下标访问和随机访问。
     * */
-public class SingleLinkList<E> {
+public class SingleLinkList<E> implements Iterable<E>{
     private Node head;
     private Node tail;
     private int size = 0;
@@ -202,17 +203,38 @@ public class SingleLinkList<E> {
     遍历显示
     * */
     public void show(){
-        Node node = head;
-        System.out.println("链表的长度为" + this.getSize());
-        for (int i = 0; i < this.getSize(); i ++){
-
-            System.out.print(node.getData() + " ");
-            node = node.getNext();
+//        Node node = head;
+//        System.out.println("链表的长度为" + this.getSize());
+//        for (int i = 0; i < this.getSize(); i ++){
+//
+//            System.out.print(node.getData() + " ");
+//            node = node.getNext();
+//        }
+//        System.out.println();
+        Iterator<E> iterator = this.iterator();
+        while(iterator.hasNext()){
+            System.out.print(iterator.next() + " ");
         }
-        System.out.println();
+        System.out.print("\n");
+
     }
 
 
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+            private Node<E> node = head;
+            @Override
+            public boolean hasNext() {
+                return node != null;
+            }
 
-
+            @Override
+            public E next() {
+                E value = node.getData();
+                node = node.getNext();
+                return value;
+            }
+        };
+    }
 }

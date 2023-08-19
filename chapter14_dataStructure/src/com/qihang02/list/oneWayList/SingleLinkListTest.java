@@ -2,6 +2,8 @@ package com.qihang02.list.oneWayList;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 /**
  * ClassName: SingleLinkListTest
  * Package: com.qihang02.list.oneWayList
@@ -19,23 +21,27 @@ public class SingleLinkListTest {
         stringSingleLinkList.insert("BB");
         stringSingleLinkList.insertHead("CC");
         stringSingleLinkList.insert("DD",1);
-        stringSingleLinkList.show();
-        stringSingleLinkList.deleteHead();
-        stringSingleLinkList.show();
-        stringSingleLinkList.insert("EE");
-        stringSingleLinkList.show();
-        stringSingleLinkList.delete();
+        Iterator<String> iterator = stringSingleLinkList.iterator();
+//        while(iterator.hasNext()){
+//            System.out.print(iterator.next()  +" ");
+//        }
         stringSingleLinkList.show();
 //        stringSingleLinkList.deleteHead();
 //        stringSingleLinkList.show();
-        stringSingleLinkList.change("FF", 2);
-        stringSingleLinkList.show();
-        System.out.println("位置" + 1 + "的数据为" + stringSingleLinkList.find(1).getData());
-        System.out.println("位置" + 0 + "的数据为" + stringSingleLinkList.find(0).getData());
-        System.out.println("位置" + 2 + "的数据为" + stringSingleLinkList.find(2).getData());
-
-        stringSingleLinkList.delete(1);
-        stringSingleLinkList.show();
+//        stringSingleLinkList.insert("EE");
+//        stringSingleLinkList.show();
+//        stringSingleLinkList.delete();
+//        stringSingleLinkList.show();
+////        stringSingleLinkList.deleteHead();
+////        stringSingleLinkList.show();
+//        stringSingleLinkList.change("FF", 2);
+//        stringSingleLinkList.show();
+//        System.out.println("位置" + 1 + "的数据为" + stringSingleLinkList.find(1).getData());
+//        System.out.println("位置" + 0 + "的数据为" + stringSingleLinkList.find(0).getData());
+//        System.out.println("位置" + 2 + "的数据为" + stringSingleLinkList.find(2).getData());
+//
+//        stringSingleLinkList.delete(1);
+//        stringSingleLinkList.show();
     }
 
 }
