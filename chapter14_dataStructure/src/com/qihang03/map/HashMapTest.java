@@ -282,6 +282,65 @@ jdk8时，底层的数据结构是：数组+单向链表+红黑树。
 复杂度为O(logn)比单向链表的时间复杂度O(n)的好
 
 */
+    /*
+    * public class HashMap<K,V>{
+        transient Node<K,V>[] table;
+
+        //Node类
+        static class Node<K,V> implements Map.Entry<K,V> {
+            final int hash;
+            final K key;
+            V value;
+            Node<K,V> next;
+
+            Node(int hash, K key, V value, Node<K,V> next) {
+                this.hash = hash;
+                this.key = key;
+                this.value = value;
+                this.next = next;
+            }
+            // 其它结构：略
+        }
+
+        //TreeNode类
+        static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
+            TreeNode<K,V> parent;
+            TreeNode<K,V> left;
+            TreeNode<K,V> right;
+            TreeNode<K,V> prev;
+            boolean red; //是红结点还是黑结点
+            TreeNode(int hash, K key, V val, Node<K,V> next) {
+                super(hash, key, val, next);
+            }
+        }
+
+        //....
+    }
+    * */
+    //属性
+    /*
+    *
+    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // 默认的初始容量 16
+    static final int MAXIMUM_CAPACITY = 1 << 30; //最大容量  1 << 30
+    static final float DEFAULT_LOAD_FACTOR = 0.75f;  //默认加载因子
+    static final int TREEIFY_THRESHOLD = 8; //默认树化阈值8，当链表的长度达到这个值后，要考虑树化
+    static final int UNTREEIFY_THRESHOLD = 6;//默认反树化阈值6，当树中结点的个数达到此阈值后，要考虑变为链表
+
+    //当单个的链表的结点个数达到8，并且table的长度达到64，才会树化。
+    //当单个的链表的结点个数达到8，但是table的长度未达到64，会先扩容
+    static final int MIN_TREEIFY_CAPACITY = 64; //最小树化容量64
+
+    transient Node<K,V>[] table; //数组
+    transient int size;  //记录有效映射关系的对数，也是Entry对象的个数
+    int threshold; //阈值，当size达到阈值时，考虑扩容
+    final float loadFactor; //加载因子，影响扩容的频率
+    * */
+    //构造器
+    /*
+    * public HashMap() {
+    this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted (其他字段都是默认值)
+    }
+    * */
 
 
 }
