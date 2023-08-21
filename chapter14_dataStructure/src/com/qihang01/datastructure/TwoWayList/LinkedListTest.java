@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @Create 2023/8/19 14:41
  * @Version 1.0
  */
-public class LinkedList<E> implements Iterable<E>{
+public class LinkedListTest<E> implements Iterable<E>{
     @Override
     public Iterator<E> iterator() {
         return null;
