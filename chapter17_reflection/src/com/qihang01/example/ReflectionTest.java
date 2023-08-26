@@ -2,12 +2,10 @@ package com.qihang01.example;
 
 import org.junit.Test;
 
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.nio.ShortBuffer;
 
 /**
  * ClassName: ReflectionTest
@@ -19,6 +17,16 @@ import java.nio.ShortBuffer;
  * @Version 1.0
  */
 public class ReflectionTest {
+    /*
+优点:
+    提高了Java程序的灵活性和扩展性，降低了耦合性，提高自适应能力。
+    允许程序创建和控制任何类的对象，无需提前硬编码目标类
+缺点:
+    反射的性能较低。
+        反射机制主要应用在对灵活性和扩展性要求很高的系统框架上。
+    反射会模糊程序内部逻辑，可读性较差。
+
+    * */
     @Test
     public void test1(){
         /*
@@ -35,11 +43,10 @@ public class ReflectionTest {
     不存在bug!
     封装性:体现的是是否建议我们调用内部api的问题。比如，private声明的结构，意味着不建议调用
     反射:体现的是我们能否调用的问题。因为类的完整结构都加载到了内存中，所有我们就有能力进行调用。
-
-
         * */
         //获取Class类的实例
-        Class<Person> _class = Person.class;
+        Class<Person> _class = Person.class;  // 运行时类
+        Class<String> _StringClass = String.class;
         try {
             //获取对象的有参构造
             Constructor<Person> constructor = _class.getDeclaredConstructor(String.class, int.class);
@@ -67,5 +74,6 @@ public class ReflectionTest {
             throw new RuntimeException(e);
         }
     }
+
 
 }
