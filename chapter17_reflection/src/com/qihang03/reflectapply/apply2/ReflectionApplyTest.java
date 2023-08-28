@@ -277,8 +277,26 @@ Package getPackage()
      */
     @Test
     public void test10(){
-        Class clazz = Person.class;
+        Class clazz = Son.class;
         Type genericSuperclass = clazz.getGenericSuperclass();
         System.out.println(genericSuperclass);//com.atguigu.java1.Creature<java.lang.String>
+
+        ParameterizedType paramType = (ParameterizedType) genericSuperclass;
+        Type[] actualTypeArguments = paramType.getActualTypeArguments();
+        for (Type a : actualTypeArguments){
+            System.out.println(((Class<?>)a).getName());
+        }
     }
+    /*
+    * 获取运行时类的带泛型的父类
+    * */
+    @Test
+    public void test11() throws ClassNotFoundException {
+        Class _class = Class.forName("com.qihang03.reflectapply.apply2.Person");
+        Package aPackage = _class.getPackage();
+        System.out.println(aPackage);
+
+
+    }
+
 }

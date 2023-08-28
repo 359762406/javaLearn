@@ -36,11 +36,12 @@ public class TestGeneric {
         Class clazz = Son.class;//四种形式任意一种都可以
 
         //（2）获取泛型父类
-//		Class sc = clazz.getSuperclass();
-//		System.out.println(sc);
+		Class sc = clazz.getSuperclass();
+		System.out.println(sc);
         /*
          * getSuperclass()只能得到父类名，无法得到父类的泛型实参列表
          */
+        //获取带泛型的父类
         Type type = clazz.getGenericSuperclass();
 
         // Father<String,Integer>属于ParameterizedType
