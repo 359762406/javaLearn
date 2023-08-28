@@ -1,4 +1,4 @@
-package com.qihang03.reflectapply.exer2;
+package com.qihang04.other.dynamic.exer1;
 
 import org.junit.Test;
 
