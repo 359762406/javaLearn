@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 public class ConstructorRefTest {
     /*
    当Lambda表达式是创建一个对象，并且满足Lambda表达式形参，正好是给创建这个对象的构造器的实参列表，就可以使用构造器引用。
+   格式：类名::new
     * */
 //构造器引用
     //Supplier中的T get()
