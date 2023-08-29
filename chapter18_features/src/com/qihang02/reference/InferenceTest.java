@@ -1,5 +1,10 @@
 package com.qihang02.reference;
 
+import org.junit.Test;
+
+import java.util.Comparator;
+import java.util.function.Consumer;
+
 /**
  * ClassName: InferenceTest
  * Package: com.qihang02.reference
@@ -18,10 +23,8 @@ public class InferenceTest {
     /*
     * 方法引用格式
 格式：使用方法引用操作符 “::” 将类(或对象) 与 方法名分隔开来。
-
 两个:中间不能有空格，而且必须英文状态下半角输入
 如下三种主要使用情况：
-
 情况1：对象 :: 实例方法名
 情况2：类 :: 静态方法名
 情况3：类 :: 实例方法名
@@ -39,4 +42,27 @@ Math类，调用random()静态方法来完成Lambda体
 针对情况3：函数式接口中的抽象方法a在被重写时使用了某一个对象的方法b。
 * 如果方法a的返回值类型与方法b的返回值类型相同，同时方法a的形参列表中有n个参数，方法b的形参列表有n-1个参数，且方法a的第1个参数作为方法b的调用者，且方法a的后n-1参数与方法b的n-1参数匹配（类型相同或满足多态场景也可以）
     * */
+    @Test
+    public void test1(){
+        Comparator<Integer> com  = Integer::compare;
+        int result = com.compare(12,21);
+        System.out.println(result);
+    }
+    @Test
+    public void test2(){
+        Consumer<String> consumer1 = new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                int index = 0;
+                System.out.println(s + ':' + index ++);
+            }
+        };
+        consumer1.accept("hello");
+        Consumer<String> consumer2 = s -> { int index = 0; System.out.println(s  + ':' + index ++);};
+        consumer2.accept("hello");
+        Consumer<String> consumer3 = System.out::println;
+        consumer3.accept("hello");
+    }
+
+
 }
