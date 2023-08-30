@@ -1,5 +1,7 @@
 package com.qihang02.reference.data;
 
+import java.util.Objects;
+
 /**
  * ClassName: Employee
  * Package: com.qihang01.lambda.exer3
@@ -36,16 +38,6 @@ public class Employee {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", age=" + age +
-                '}';
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -60,5 +52,28 @@ public class Employee {
     }
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Double.compare(employee.salary, salary) == 0 && age == employee.age && Objects.equals(name, employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, salary, age);
     }
 }

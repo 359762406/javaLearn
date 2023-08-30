@@ -20,7 +20,7 @@ public class EmployeeData {
         List<Employee> list = new ArrayList<>();
         list.add(new Employee(1, "张三",  33, 8000));
         list.add(new Employee(2, "翠花", 23, 18000));
-        list.add(new Employee(3, "无能",  46, 8000));
+        list.add(new Employee(3, "无能",  12, 8000));
         list.add(new Employee(4, "李四", 23, 9000));
         list.add(new Employee(5, "老王", 23, 15000));
         list.add(new Employee(6, "大嘴", 23, 11000));
