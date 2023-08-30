@@ -4,8 +4,12 @@ import com.qihang02.reference.data.Employee;
 import com.qihang02.reference.data.EmployeeData;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * ClassName: EndOperate
@@ -110,5 +114,55 @@ Map<Boolean,List<Emp>> vd = list.stream().collect(Collectors.partitioningBy(Empl
                 .map(Employee::getSalary)
                 .min(Double::compareTo)
                 .get());
+        //针对于List来说，遍历的方式:①使用Iterator②增强for③一般for ④ forEach()
     }
+    @Test
+    public void test2(){
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        //reduce(T identity, BinaryOperator b)
+        //BinaryOperator R apply(T t, U u);
+        //identity 初始值
+        System.out.println(integerList.stream().reduce(0, Integer::sum));
+    }
+    @Test
+    public void test3(){
+        List<Employee> employeeList = EmployeeData.getEmployee().stream().filter(emp -> emp.getSalary() > 10000).collect(Collectors.toList());
+        employeeList.forEach(System.out::println);
+        EmployeeData.getEmployee().stream().sorted((e1,e2)->e1.getAge()- e2.getAge()).collect(Collectors.toList()).forEach(System.out::println);
+
+    }
+    @Test
+    public void test4(){
+        /*
+        * ofNullable()的使用：
+Java 8 中 Stream 不能完全为null，否则会报空指针异常。
+* 而 Java 9 中的 ofNullable 方法允许我们创建一个单元素 Stream，可以包含一个非空元素，也可以创建一个空 Stream。
+        * */
+        //报NullPointerException
+//Stream<Object> stream1 = Stream.of(null);
+//System.out.println(stream1.count());
+
+//不报异常，允许通过
+        Stream<String> stringStream = Stream.of("AA", "BB", null);
+        System.out.println(stringStream.count());//3
+
+//不报异常，允许通过
+        List<String> list = new ArrayList<>();
+        list.add("AA");
+        list.add(null);
+        System.out.println(list.stream().count());//2
+//ofNullable()：允许值为null
+        Stream<Object> stream1 = Stream.ofNullable(null);
+        System.out.println(stream1.count());//0
+
+        Stream<String> stream = Stream.ofNullable("hello world");
+        System.out.println(stream.count());//1
+    }
+    
+
+
+
+
+
+
 }
