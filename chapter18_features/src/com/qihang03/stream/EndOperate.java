@@ -157,6 +157,11 @@ Java 8 中 Stream 不能完全为null，否则会报空指针异常。
 
         Stream<String> stream = Stream.ofNullable("hello world");
         System.out.println(stream.count());//1
+        //原来的控制终止方式：
+        Stream.iterate(1,i -> i + 1).limit(10).forEach(System.out::println);
+
+//现在的终止方式：
+        Stream.iterate(1,i -> i < 100,i -> i + 1).forEach(System.out::println);
     }
     
 
