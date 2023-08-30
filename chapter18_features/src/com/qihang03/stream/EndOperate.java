@@ -91,7 +91,7 @@ partitioningBy	Collector<T, ?, Map<Boolean, List>>	根据true或false进行分�
 Map<Boolean,List<Emp>> vd = list.stream().collect(Collectors.partitioningBy(Employee::getManage
     * */
     @Test
-    public void test1(){
+    public void test1() {
         System.out.println(EmployeeData.getEmployee().stream().allMatch(emp -> emp.getAge() > 18));
         System.out.println(EmployeeData.getEmployee().stream().anyMatch(emp -> emp.getAge() > 18));
         System.out.println(EmployeeData.getEmployee().stream()
@@ -104,6 +104,11 @@ Map<Boolean,List<Emp>> vd = list.stream().collect(Collectors.partitioningBy(Empl
                 .map(Employee::getSalary)
                 .max(Double::compareTo)
                 .get());
+        System.out.println(EmployeeData.getEmployee().stream()
+                .min(Comparator.comparingDouble(Employee::getSalary)).get().getName());
+        System.out.println(EmployeeData.getEmployee().stream()
+                .map(Employee::getSalary)
+                .min(Double::compareTo)
+                .get());
     }
-
 }
